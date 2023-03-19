@@ -123,7 +123,7 @@ class Ui {
         parent: sectionElement,
         className: "add-task d-none",
       });
-      addTask.children[0].addEventListener("submit", (e: Event): void => {
+      addTask.children[0].addEventListener("submit", (e: any): void => {
         e.preventDefault();
         const values = {
           title: e.target.title.value,
@@ -142,7 +142,7 @@ class Ui {
     const sectionForm = document.querySelector("#sectionForm")!;
 
     sections.forEach((section) => {
-      section.addEventListener("dragover", (e) => {
+      section.addEventListener("dragover", (e: any) => {
         e.preventDefault();
         section.classList.add("drag-over");
         const afterElement = this.getDragAfterElement(section, e.clientY);
@@ -159,7 +159,7 @@ class Ui {
         section.classList.remove("drag-over");
       });
 
-      section.addEventListener("drop", (e) => {
+      section.addEventListener("drop", () => {
         section.classList.remove("drag-over");
       });
     });
@@ -174,7 +174,7 @@ class Ui {
       });
     });
 
-    sectionForm.addEventListener("submit", (e: Event): void => {
+    sectionForm.addEventListener("submit", (e: any): void => {
       e.preventDefault();
       this.addSectionFormHandler(e.target.title.value);
       document.getElementById("btnAddSection")?.classList.remove("d-none");
