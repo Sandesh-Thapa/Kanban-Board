@@ -11,10 +11,29 @@
         padding: 0;
         box-sizing: border-box;
       }
+      .clear-btn {
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        padding: 5px;
+        border-radius: 10px;
+        background: #36393f;
+        cursor: pointer;
+        color: aliceblue;
+        border: none;
+        border: 1px solid #5b5b5b;
+      }
     </style>
   </head>
   <body>
+    <button class="clear-btn">Clear Local Data</button>
     <div id="app"></div>
+    <script>
+      document.querySelector(".clear-btn").addEventListener('click', () => {
+        localStorage.removeItem("sections");
+        location.reload();
+      })
+    </script>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

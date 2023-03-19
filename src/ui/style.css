@@ -64,6 +64,7 @@ header button {
 
 .section {
     min-width: 280px;
+    position: relative;
 }
 
 .section ul {
@@ -78,6 +79,18 @@ header button {
     border-radius: 10px;
     cursor: pointer;
     width: 100%;
+    position: relative;
+}
+
+.section .delete-section-btn {
+    background: var(--bg-secondary);
+    color: #a7a7a7;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 8px;
+    padding: 2px 10px;
 }
 .task-title {
     font-weight: 500;
@@ -88,6 +101,17 @@ header button {
     font-weight: 300;
     font-size: .8rem;
     overflow-wrap: break-word;
+}
+
+.section .delete-btn {
+    position: absolute;
+    top: 10px;
+    right: 8px;
+    padding: 2px 10px;
+    background: var(--bg-primary);
+    color: #a7a7a7;
+    border: none;
+    cursor: pointer;
 }
 
 .section-header {
@@ -127,7 +151,7 @@ header button {
     border-radius: 10px;
 }
 
-.add-task form .title-input{
+.title-input{
     width: 100%;
     background: var(--bg-primary);
     padding: 5px;

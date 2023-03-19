@@ -7,14 +7,15 @@ const _sections: section[] = [
     tasks: [
       {
         id: "1",
-        title: "Learn TypeScript",
+        title: "Finibus Bonorum",
         description:
-          "Learn TypeScript and use it in your projectsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss",
+          "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores",
       },
       {
         id: "2",
-        title: "Learn Vite",
-        description: "Learn Vite and use it in your projects",
+        title: "Malorum",
+        description:
+          "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur",
       },
     ],
   },
@@ -24,13 +25,13 @@ const _sections: section[] = [
     tasks: [
       {
         id: "1",
-        title: "Learn React",
-        description: "Learn React and use it in your projects",
+        title: "Nemo enim",
+        description: "Sed ut perspiciatis unde omnis",
       },
       {
         id: "2",
-        title: "Learn Redux",
-        description: "Learn Redux and use it in your projects",
+        title: "iste natus",
+        description: "iste natus error sit voluptatem",
       },
     ],
   },
@@ -40,13 +41,8 @@ const _sections: section[] = [
     tasks: [
       {
         id: "1",
-        title: "Learn TypeScript",
+        title: "Sed ut perspiciatis unde omnis iste natus error sit",
         description: "Learn TypeScript and use it in your projects",
-      },
-      {
-        id: "2",
-        title: "Learn Vite",
-        description: "Learn Vite and use it in your projects",
       },
     ],
   },
@@ -56,13 +52,14 @@ const _sections: section[] = [
     tasks: [
       {
         id: "1",
-        title: "Learn React",
-        description: "Learn React and use it in your projects",
+        title: "quis nostrum",
+        description:
+          "quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur",
       },
       {
         id: "2",
-        title: "Learn Redux",
-        description: "Learn Redux and use it in your projects",
+        title: "Quis autem",
+        description: "Quis autem vel eum iure reprehenderit",
       },
     ],
   },
@@ -72,13 +69,15 @@ const _sections: section[] = [
     tasks: [
       {
         id: "1",
-        title: "Learn TypeScript",
-        description: "Learn TypeScript and use it in your projects",
+        title: "Nemo enimt",
+        description:
+          "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni ",
       },
       {
         id: "2",
-        title: "Learn Vite",
-        description: "Learn Vite and use it in your projects",
+        title: "perspiciatis unde",
+        description:
+          "labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam",
       },
     ],
   },
@@ -88,13 +87,14 @@ const _sections: section[] = [
     tasks: [
       {
         id: "1",
-        title: "Learn React",
-        description: "Learn React and use it in your projects",
+        title: "Lorem ipsum",
+        description:
+          "Quisque tempus justo id orci auctor faucibus. Cras bibendum, quam ac ornare sollicitudin, erat erat sollicitudin magna, nec porta lorem orci ut tortor",
       },
       {
         id: "2",
-        title: "Learn Redux",
-        description: "Learn Redux and use it in your projects",
+        title: "Nulla tincidunt molestie",
+        description: "Suspendisse eget turpis lectus",
       },
     ],
   },

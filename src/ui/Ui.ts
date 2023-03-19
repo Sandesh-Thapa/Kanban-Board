@@ -7,24 +7,22 @@ import { create } from "../utils/dom";
 class Ui {
   container: HTMLElement;
   sections: section[];
+  board: Board;
 
   constructor(container: HTMLElement, sections: section[]) {
     this.container = container;
     this.sections = sections;
+    this.board = new Board(this.sections);
   }
 
   render(): void {
-    const btnAddSection = create({
-      element: "button",
-      innerHtml: "+&nbsp;&nbsp;&nbspAdd Section",
-      onClick: () => {
-        console.log("clicked");
-      },
-    });
-
     const parentInnerHtml = `
             <header>
                 <h1>Kanban Board</h1>
+                <form id="sectionForm" class="d-none">
+                  <input class="title-input" type="text" placeholder="Section Title" name="title" required />
+                  <button class="btn-add-task" type="submit">+&nbsp;&nbsp;&nbspAdd Section</button>
+                <form>
             </header>
             <main></main>
         `;
@@ -33,6 +31,15 @@ class Ui {
       className: "wrapper",
       innerHtml: parentInnerHtml,
       parent: this.container,
+    });
+    const btnAddSection = create({
+      element: "button",
+      innerHtml: "+&nbsp;&nbsp;&nbspAdd Section",
+      id: "btnAddSection",
+      onClick: () => {
+        btnAddSection.classList.add("d-none");
+        parentNode.querySelector("#sectionForm")?.classList.remove("d-none");
+      },
     });
     parentNode.querySelector("header")?.appendChild(btnAddSection);
 
@@ -53,6 +60,13 @@ class Ui {
         innerHtml: section.name,
         parent: sectionElement,
         className: "section-header",
+      });
+      const deleteSectionBtn = create({
+        element: "button",
+        innerHtml: "&#128465;",
+        className: "delete-section-btn",
+        parent: sectionElement,
+        onClick: () => this.deleteSection(section.id),
       });
       const tasksList = create({
         element: "ul",
@@ -78,6 +92,13 @@ class Ui {
           element: "p",
           innerHtml: task.description,
           parent: taskElement,
+        });
+        const deleteTaskBtn = create({
+          element: "button",
+          innerHtml: "&#128465;",
+          className: "delete-btn",
+          parent: taskElement,
+          onClick: () => this.deleteTask(section.id, task.id),
         });
       });
       const addTaskBtn = create({
@@ -118,6 +139,7 @@ class Ui {
   prepareEventListeners(): void {
     const sections = document.querySelectorAll(".droppable");
     const tasks = document.querySelectorAll(".draggable");
+    const sectionForm = document.querySelector("#sectionForm")!;
 
     sections.forEach((section) => {
       section.addEventListener("dragover", (e) => {
@@ -151,6 +173,13 @@ class Ui {
         task.classList.remove("current-drag");
       });
     });
+
+    sectionForm.addEventListener("submit", (e: Event): void => {
+      e.preventDefault();
+      this.addSectionFormHandler(e.target.title.value);
+      document.getElementById("btnAddSection")?.classList.remove("d-none");
+      sectionForm.classList.add("d-none");
+    });
   }
 
   protected getDragAfterElement(element: any, clientY: number) {
@@ -174,15 +203,34 @@ class Ui {
     sectionId: string,
     formValues: { title: string; description: string }
   ): void {
-    const board = new Board(this.sections);
     const task: task = {
       id: uuidv4(),
       title: formValues.title,
       description: formValues.description,
     };
-    board.addTask(sectionId, task);
+    this.board.addTask(sectionId, task);
+    location.reload();
     // this.render();
     // requestAnimationFrame(this.initFunc);
+  }
+
+  protected addSectionFormHandler(title: string): void {
+    const newSection: section = {
+      id: uuidv4(),
+      name: title,
+      tasks: [],
+    };
+    this.board.addSection(newSection);
+    location.reload();
+  }
+
+  protected deleteTask(sectionId: string, taskId: string) {
+    this.board.removeTask(sectionId, taskId);
+    location.reload();
+  }
+
+  protected deleteSection(sectionId: string) {
+    this.board.removeSection(sectionId);
     location.reload();
   }
 }
